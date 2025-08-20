@@ -1,21 +1,26 @@
 const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const authRoutes = require('./Routes/AuthRouter'); // Existing auth routes
-const appointmentRoutes = require('./Routes/appointmentRoutes'); // New appointment routes
+const bodyParser = require('body-parser');
 require('dotenv').config();
-require('./Models/db'); // Ensure database connection
-const PORT = process.env.PORT;
+require('./Models/db'); // Database connection
 
-app.listen(PORT, () => {
-    console.log(`Server started at ${PORT}`);
-});
+// Initialize app
+const app = express();
 
 // Middleware
-app.use(bodyParser.json());
+app.use(express.json()); // Built-in body parser
+app.use(bodyParser.json()); // Optional (you can remove if using only express.json)
 app.use(cors());
 
 // Routes
-app.use('/auth', authRoutes); // Existing auth routes
-app.use('/appointments', appointmentRoutes); // New appointment routes
+const authRoutes = require('./Routes/AuthRouter');
+const appointmentRoutes = require('./Routes/appointmentRoutes');
+
+app.use('/auth', authRoutes);
+app.use('/appointments', appointmentRoutes);
+
+// Start server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`✅ Server started at port ${PORT}`);
+});

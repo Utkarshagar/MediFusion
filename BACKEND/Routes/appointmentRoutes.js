@@ -1,17 +1,13 @@
 const express = require('express');
-const { bookAppointment, getAppointments } = require('../Controllers/AppointmentController');
-const ensureAuthenticated = require('../Middlewares/Auth');
-
 const router = express.Router();
-console.log('bookAppointment:',ensureAuthenticated, bookAppointment);
-console.log('getAppointments:',ensureAuthenticated, getAppointments);
+const ensureAuthenticated = require('../Middleware/ensureAuthenticated');
 
-// Define routes
-// router.post('/some-path', someMiddleware, someControllerFunction);
+const { bookAppointment, getAppointments } = require('../controllers/appointmentController');
 
-// router.get('/', verifyToken, getAppointments);
-router.post('/book', bookAppointment);
-router.get('/', getAppointments);
+// Book appointment (Protected route)
+router.post('/book', ensureAuthenticated, bookAppointment);
+
+// Get all appointments (Protected route)
+router.get('/', ensureAuthenticated, getAppointments);
 
 module.exports = router;
-
