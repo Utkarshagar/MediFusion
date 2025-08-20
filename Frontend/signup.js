@@ -13,7 +13,7 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
     }
 
     try {
-        const response = await fetch('http://localhost:8080/auth/signup', {
+        const response = await fetch('https://medifusion-4.onrender.com/auth/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ role, name, email, password })

@@ -20,7 +20,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     };
 
     // Send a POST request to the backend
-    fetch('http://localhost:8080/auth/login', {
+    fetch('https://medifusion-4.onrender.com/auth/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
