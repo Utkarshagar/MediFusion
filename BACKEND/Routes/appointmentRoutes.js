@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ensureAuthenticated = require('../Middleware/ensureAuthenticated');
 
-const { bookAppointment, getAppointments } = require('../controllers/appointmentController');
+const { bookAppointment, getAppointments } = require('../Controllers/AppointmentController');
 
 // Book appointment (Protected route)
 router.post('/book', ensureAuthenticated, bookAppointment);
