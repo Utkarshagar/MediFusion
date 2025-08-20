@@ -39,7 +39,8 @@ MediFusion is an innovative healthcare management website designed to provide us
 4. Access secure health records and other personalized features.
 
 ## Roadmap
-- [x] Implement user authentication for secure access. ✅
+- [x] Implement user authentication for secure access
+
 - [ ] Develop a backend to store and manage user data and health records.
 - [ ] Expand virtual consultation features for enhanced interaction.
 - [ ] Add multilingual support for global accessibility.
